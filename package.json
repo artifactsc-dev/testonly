@@ -1,0 +1,47 @@
+{
+  "name": "@app/demo-page",
+  "version": "1.0.0",
+  "description": "Test",
+  "private": "true",
+  "license": "UNLICENSED",
+  "workspaces": {},
+  "scripts": {
+    "clean": "scripts/clean.sh",
+    "compile:typescript": "tsc --build",
+    "compile:page": "tsc --build && webpack",
+    "compile:prod": "npm run clean && npm run styleguide && BUILD_TYPE=prod npm run compile:page",
+    "compile:watch": "tsc --build --watch",
+    "webpack:serve": "BUILD_TYPE=dev webpack serve --open",
+    "webpack:serve:debug": "BUILD_TYPE=debug webpack serve --open",
+    "start": "npm run compile:typescript && (npm run compile:watch & npm run webpack:serve)",
+    "start:debug": "npm run compile:typescript && npm run compile:watch & npm run webpack:serve:debug",
+    "styleguide": "npm run lint && npm run format:check",
+    "styleguide:fix": "npm run lint:fix && npm run format:fix",
+    "lint:fix": "npm run lint --fix",
+    "lint": "eslint --ext .ts ./src",
+    "format:check": "prettier -l 'src/**/*.ts'",
+    "format:fix": "npm run format:check -- --write || exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artifactsc-dev/testonly/"
+  },
+  "keywords": [
+    "web-sdk"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.36.2",
+    "@typescript-eslint/parser": "5.36.2",
+    "copy-webpack-plugin": "9.0.0",
+    "eslint": "7.28.0",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-prefer-arrow": "1.2.3",
+    "html-webpack-plugin": "5.3.1",
+    "prettier": "2.2.1",
+    "source-map-loader": "3.0.0",
+    "typescript": "4.8.3",
+    "webpack": "5.69.1",
+    "webpack-cli": "4.10.0",
+    "webpack-dev-server": "4.7.4"
+  }
+}
