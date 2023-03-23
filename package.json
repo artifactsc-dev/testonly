@@ -30,6 +30,7 @@
     "web-sdk"
   ],
   "devDependencies": {
+    "crypto-js": "4.1.1",
     "@typescript-eslint/eslint-plugin": "5.36.2",
     "@typescript-eslint/parser": "5.36.2",
     "copy-webpack-plugin": "9.0.0",
